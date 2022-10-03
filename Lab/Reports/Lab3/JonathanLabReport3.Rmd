@@ -1,0 +1,133 @@
+---
+title: "JonathanLabReport3"
+author: "Jonathan Grabowski"
+date: '2022-09-19'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# This file contains the exercises and solutions from Introduction to R: Part 2
+
+***
+
+# Exercise 1: Rows and Columns
+
+This exercise required the use of the Test_V_output dataset. After this exercise, this dataset will be named TestData for simplicity. 
+
+For this exercise, I needed to:
+
+1. Upload Test_V_output.csv into RStudio.
+2. Save the Total scores column in a vector called tot_score.
+3. Choose a row in the dataframe and find the Source ID, Target ID, and Total Score of that row.
+
+### Step 1
+
+To upload the data, I used the read.csv function to upload the Test_V_output data and I assigned it to TestData. When I ran this line of code, TestData appeared in my environment under data.
+
+```{r}
+TestData <- read.csv(file="Test_V_output.csv", sep=",", header = TRUE)
+```
+
+### Step 2
+
+Next, I assigned the Total Score column to tot_score. When I ran this line of code, tot_score appeared in my environment under values.
+
+```{r}
+tot_score <- TestData$Total.Score
+```
+
+### Step 3
+
+Then, I chose row 7 arbitrarily and needed to find the Source ID, Target ID, and Total Score of row 7. To get the information I needed, I indexed the dataset to give me information of row 7 and then used the $ symbol to reference the specific column I wanted information from. The first line of code output "o14757" which is the Target ID of row 7. The second line of code output "p20848" which is the Source ID of row 7. The third line of code outputs 240 which is the Total Score of row 7. 
+
+```{r}
+TestData[7,]$Target.ID
+TestData[7,]$Source.ID
+TestData[7,]$Total.Score
+```
+
+
+
+# Exercise 2: Mean and Standard Deviation 
+
+This exercise required the use of the Test_V_output (now named TestData, see Exercise 1) dataset. 
+
+For this exercise, I needed to: 
+
+1. Find the mean and standard deviation of the Total Scores in this set. 
+2. Find out how many unique papers were used to create this dataset.
+
+### Step 1 
+
+I used the mean function to find the mean of the Total Score column and I used the sd function to find the standard deviation of the Total Score column. The mean of the Total Score column is 63.79919 and the standard deviation of the Total Score column is 55.2925. 
+
+```{r}
+mean(TestData$Total.Score)
+sd(TestData$Total.Score)
+```
+
+### Step 2 
+
+To find how many unique papers that were used to create this dataset, I had to remove the trash characters like [, ], ', and blank spaces in the Paper ID column so I used the gsub function to remove them in four separate lines of code. Then, in one line of code, I used the strsplit function to break up the vector of lists into individual elements, the unlist function to make the vector of lists into a vector, the unique function to remove the duplicates, the length function to give me the exact number of unique papers, and the print function to print the value of unique papers. There are 102 unique papers in the dataset.
+
+```{r}
+TestData$Paper.ID <- gsub("\\[", "", TestData$Paper.ID)
+TestData$Paper.ID <- gsub("\\]", "", TestData$Paper.ID)
+TestData$Paper.ID <- gsub("\\'", "", TestData$Paper.ID)
+TestData$Paper.ID <- gsub(" ", "", TestData$Paper.ID)
+
+print(length(unique(unlist(strsplit(TestData$Paper.ID, ",")))))
+```
+
+
+# Exercise 3: Vectorization
+
+This exercise required the use of the Test_V_output (now named TestData, see Exercise 1) dataset.
+
+For this exercise I needed to:
+
+1. Make the Total Score column again by using the kind, evidence, match and epistemic scores and add it to the dataset and name it something different than Total Score. 
+
+### Step 1
+
+I used the formula that was provided to make the Total Score column again and I assigned this formula to NewScore. Then, I assigned NewScore to TestData$NewScore to add the column NewScore to the dataset. The NewScore column was added to the dataset. I used a boolean expression to see if the NewScore column was the same as the Total Score column and it was TRUE for every value.
+
+```{r}
+NewScore <- (TestData$Kind.Score+
+               (TestData$Evidence.Score*TestData$Match.Score))*TestData$Epistemic.Value
+TestData$NewScore <- NewScore
+
+TestData$NewScore == TestData$Total.Score
+```
+
+# Exercise 4: Subsets
+
+This exercise required the use of the Test_V_output (now named TestData, see Exercise 1) dataset.
+
+For this exercise I needed to:
+
+1. Remove the columns location, cell type, and organism from the dataset.
+2. Make the dataset show only the first 100 rows of interactions.
+
+
+### Step 1 
+
+To remove the location, cell type, and organism columns, I indexed the dataset to remove the Location, Cell Type and Organism columns which I then assigned to TestData. The dataset no longer contained the location, cell type, and organism columns after I ran the line of code. 
+
+```{r}
+TestData <- TestData[,!(names(TestData) %in% c("Location","Cell.Type, Organism"))]
+```
+
+### Step 2
+
+I indexed the dataset using brackets and inside the brackets used 1:100 to represent the rows and nothing for columns to show only first 100 rows of interactions. The dataset now only shows the first 100 rows of interactions. 
+
+```{r}
+TestData <- TestData[1:100,]
+```
+
+
+

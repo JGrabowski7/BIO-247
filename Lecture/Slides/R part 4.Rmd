@@ -1,0 +1,67 @@
+---
+title: "R part 4"
+author: "Jonathan Grabowski"
+date: '2022-09-20'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#shirt <- "red"
+shirt <- "yellow"
+#shirt <- "green"
+#shirt <- "blue"
+#shirt <- "white"
+```
+
+
+```{r}
+if (shirt =="red") {
+  print("apple")
+} else if (shirt == "yellow") {
+  print("banana") 
+} else if (shirt == "green") {
+  print("watermelon")
+} else if (shirt == "blue") {
+  print("blueberries")
+} else  {
+  print("egg whites")
+} 
+```
+
+```{r}
+stop <- sample(1:1000, 1)
+
+num = 0
+while (num > stop){
+  num <- num + 1
+}
+print ("pop goes the weasel")
+```
+
+```{r}
+vect1 <- c("Pop","goes","the","weasel")
+for (each in vect1){
+print(each)
+}
+```
+
+
+```{r}
+Test_V_output$`Paper ID`<- gsub("\\[", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub("\\]", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub("\\'", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub(" ", "", Test_V_output$`Paper ID`)
+```
+
+```{r}
+print(length(unique(unlist(strsplit(Test_V_output$`Paper ID`, ",")))))
+```
+
+
+
+
+
