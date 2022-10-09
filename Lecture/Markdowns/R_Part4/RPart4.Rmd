@@ -1,0 +1,76 @@
+---
+title: "R part 4"
+author: "Jonathan Grabowski"
+date: '2022-09-20'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A # symbol in the box where code goes in an Rmarkdown can be used to make R read the line of code as a comment. 
+
+```{r}
+#shirt <- "red"
+shirt <- "yellow"
+#shirt <- "green"
+#shirt <- "blue"
+#shirt <- "white"
+```
+
+The loop below is made to tell a person to eat a specific food if their shirt is a certain color.
+
+```{r}
+if (shirt =="red") {
+  print("apple")
+} else if (shirt == "yellow") {
+  print("banana") 
+} else if (shirt == "green") {
+  print("watermelon")
+} else if (shirt == "blue") {
+  print("blueberries")
+} else  {
+  print("egg whites")
+} 
+```
+
+I generated a random number from 1 to 1000 and named it stop. Then, I made a while loop that will print "pop goes the weasel" when the number is reached.
+
+```{r}
+stop <- sample(1:1000, 1)
+
+num = 0
+while (num > stop){
+  num <- num + 1
+}
+print ("pop goes the weasel")
+```
+
+I created a vector with the words "Pop", "goes", "the", "weasel" and named the vector vect1. Then, I created a loop that prints each word in the vector at the same time.
+
+```{r}
+vect1 <- c("Pop","goes","the","weasel")
+for (each in vect1){
+print(each)
+}
+```
+
+The gsub function will remove junk characters. I removed blank spaces, left brackets, right brackets, and quotation marks from the Paper ID column in the dataset Test_V_output.
+
+```{r}
+Test_V_output$`Paper ID`<- gsub("\\[", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub("\\]", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub("\\'", "", Test_V_output$`Paper ID`)
+Test_V_output$`Paper ID`<- gsub(" ", "", Test_V_output$`Paper ID`)
+```
+
+This code will print the number of unique papers in the Paper ID column in the dataset Test_V_output.
+```{r}
+print(length(unique(unlist(strsplit(Test_V_output$`Paper ID`, ",")))))
+```
+
+
+
+
+
