@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ***
 
-This README file describes the organization of materials for BIO-247: Bioinformatics in Jonathan's BIO-247 folder. There are four main sub-directories in the BIO-247 folder: Lecture, Lab, Project, and Data.
+This README file describes the organization of materials for BIO-247: Bioinformatics in Jonathan's BIO-247 folder. There are four main sub-directories in the BIO-247 folder: Lecture, Lab, Project, and Exams.
 
 ### Lecture
 
@@ -23,42 +23,13 @@ This README file describes the organization of materials for BIO-247: Bioinforma
 
 In this sub-directory, resources related to lecture portion of the class can be found here.
 
-#### Reading Assignments
+#### Markdowns
 
-***
+The Markdowns folder under the Lecture folder contains Rmarkdown files of exercises completed during lecture.
 
-The Readings folder located in the Lecture folder is broken into multiple folders that contain the resources needed to complete each reading assignment. If a reading assignment calls for reading from the textbook, there will be no resources in that folder. The Readings folder contains:
+The items located in this folder will have the following conventions: 
 
--   Assn_01
--   Assn_02
--   Assn_03
--   Assn_04
--   Assn_05
--   Assn_06
--   Assn_07
--   Assn_08
--   Assn_09
--   Assn_10
-
-The items located under Readings and in each reading assignment folder will have the following convention:
-
-> Reading#LastName.pdf
->
-> Reading#LastNameetal.pdf
-
-The # in the lines above represents the reading assignment number. The "LastName" in the line above represents the last name of the author or authors of the reading. If there are more than two authors, the first author's last name will appear in the file followed by "etal" (et al.).
-
-#### Slides
-
-***
-
-The Slides folder located in the Lecture folder will contain the slides for each chapter.
-
-The items located under the Slides folder will have the following convention:
-
-> BIO-247Chap#
-
-The # in the line above represents the chapter number.
+> R_Part4.rmd
 
 ### Lab
 
@@ -66,23 +37,7 @@ The # in the line above represents the chapter number.
 
 In this sub-directory, resources related to the lab portion of the class can be found here.
 
-#### Lab Protocols
-
-***
-
-The Protocols folder under the Lab folder will contain the protocols for each lab and other resources that may be needed to complete the lab like datasets and README files.
-
-The items located under the LabProtocols folder will have the following convention:
-
-> BIO-247Lab#.pdf
->
-> BIO-247Dataset.txt
->
-> BIO-247README.html
-
-The # in the first line above represents the lab protocol number.
-
-#### Lab Reports
+#### Reports
 
 ***
 
@@ -90,7 +45,11 @@ The Reports folder under the Lab folder will contain the lab reports for each la
 
 The items located under the Reports folder will have the following convention:
 
-> JonathanLabReport#.pdf
+> GrabowskiLabReport#.pdf
+>
+> GrabowskiLabReport#.rmd
+>
+> GrabowskiLabReport#.R
 
 The # in the line above represents the lab report number.
 
@@ -104,6 +63,7 @@ The Project folder will contain:
 
 -   Data
 -   Debug
+-   Papers
 -   Poster
 -   README
 -   Reflection
@@ -111,7 +71,7 @@ The Project folder will contain:
 
 The items under the multiple folders will have the following conventions depending on the folder they are in:
 
-> Data.txt
+> Data.csv
 >
 > JonathanPoster.pdf
 >
@@ -120,18 +80,6 @@ The items under the multiple folders will have the following conventions dependi
 > PosterReflection.pdf
 >
 > PosterRubric.pdf
-
-### Data
-
-***
-
-In this sub-directory, data used in lecture or lab can be found here.
-
-The following convention for datasets will be
-
-> Data.txt
->
-> Data.csv
 
 **NOTE:**
 
