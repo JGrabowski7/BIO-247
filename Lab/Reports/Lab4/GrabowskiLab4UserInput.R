@@ -1,7 +1,7 @@
-# Run this line of code, then enter file name in console
+# Run this line of code, then enter the file name in console
 filename <- readline(prompt = "Enter file path:")
 
-# Run this line to import dataset
+# Run this line to import the dataset
 file <- read.csv(filename,header=TRUE)
 
 # Run these lines of code to remove junk Paper IDs 
@@ -17,3 +17,6 @@ for (each in c(length(file$Paper.ID):1)){
 
 # This line of code will print the number of rows with non-junk Paper IDs
 print(length(file$Paper.ID))
+
+
+# I hope this helped remove junk papers from your dataset!
