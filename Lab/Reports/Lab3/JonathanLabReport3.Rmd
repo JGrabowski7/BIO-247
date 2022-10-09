@@ -49,8 +49,6 @@ TestData[7,]$Source.ID
 TestData[7,]$Total.Score
 ```
 
-
-
 # Exercise 2: Mean and Standard Deviation 
 
 This exercise required the use of the Test_V_output (now named TestData, see Exercise 1) dataset. 
@@ -82,7 +80,6 @@ TestData$Paper.ID <- gsub(" ", "", TestData$Paper.ID)
 print(length(unique(unlist(strsplit(TestData$Paper.ID, ",")))))
 ```
 
-
 # Exercise 3: Vectorization
 
 This exercise required the use of the Test_V_output (now named TestData, see Exercise 1) dataset.
@@ -111,7 +108,6 @@ For this exercise I needed to:
 
 1. Remove the columns location, cell type, and organism from the dataset.
 2. Make the dataset show only the first 100 rows of interactions.
-
 
 ### Step 1 
 
